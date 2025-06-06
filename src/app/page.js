@@ -6,7 +6,13 @@ import { Pricing } from "@/components/Pricing";
 import { CallToAction } from "@/components/CallToAction";
 import { Footer } from "@/components/Footer";
 
-export default function Home() {
+import supabase from "@/utils/supabase/supabaseClient";
+
+export default async function Home() {
+
+
+  const { data: todos } = await supabase.from('todos').select()
+
   return (
     <div className="bg-slate-900 min-h-screen">
       <NavBar />
